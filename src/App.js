@@ -1,14 +1,16 @@
 import React from 'react';
 import './App.css';
 import Ssh from './Ssh'
-import KTable from './KTable'
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <Ssh />
+      <Ssh />
       </header>
+      <body>
+        
+      </body>
     </div>
   );
 }
