@@ -9,7 +9,7 @@ class KTable extends React.Component {
         return (
             parse(
                 tmp.reduce((total, item) => {
-                    return total += "<tr>" + item + "</tr>"
+                    return total += "<tr><td>" + item + "</td></tr>"
                 }, "")
             )
         )
@@ -31,7 +31,11 @@ class KTable extends React.Component {
     render() {
         return (
             <div>
-                {this.makeTable()}
+                <table>
+                    <tbody>
+                    {this.makeTable()}
+                    </tbody>
+                </table>
             </div>
         )
     }
