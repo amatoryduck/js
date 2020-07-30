@@ -1,7 +1,9 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 
-### KEITH RUN `npm install` in the directory containing `package-lock.json`
+### 1. KEITH RUN `npm install` in the directory containing `package-lock.json`
+### 2. KEITH, go into the `backend` folder and run `node server.js` or `node server.js &`
+### 3. KEITH, go into the `/` and run `npm start` or `npm start &` it should open a browser for you
 
 ## Available Scripts
 

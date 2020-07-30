@@ -17,6 +17,7 @@ var foo = () => {
 }
 
 app.get('/api/ls', (req, res) => {
+    console.log('Connecting to api')
     res.json(foo())
 })
 

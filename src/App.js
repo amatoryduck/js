@@ -8,9 +8,6 @@ function App() {
       <header className="App-header">
       <Ssh />
       </header>
-      <body>
-        
-      </body>
     </div>
   );
 }
