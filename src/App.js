@@ -1,7 +1,7 @@
 import React from 'react';
 //import './App.css';
-import Ssh from './Ssh'
 import NavBar from './components/NavBar/NavBar'
+import Machine from './components/Machine/Machine'
 
 function App() {
   return (
@@ -9,6 +9,7 @@ function App() {
       <header className="App-header">
       </header>
       <NavBar />
+      <Machine />
     </div>
   );
 }

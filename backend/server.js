@@ -11,13 +11,13 @@ const location = "localhost"
 var router = express.Router()
 const statusDict = {
     "hostname": "mycomputer",
-    "running": true,
+    "running": "true",
     "Cksum": 0x5678910,
     "pid": 13,
-    "pDRCALeader": true,
+    "pDRCALeader": "true",
     "pDRCAIteration": 300,
     "MDRLevel": ["area 0.0.0.0 interface cvn68m2_01_26 MDR", "area 0.0.0.0 interface cvn68m2_01_27 MDR", "area 0.0.0.0 interface cvn68m2_01_26 MDR"],
-    "Neibghbor State": ["4.4.4.4 1 00:00:37 Full/DROther 7d13:53:33 cvn68m2_01_26[PointToPoint]", "4.4.4.4 1 00:00:37 Full/DROther 7d13:53:33 cvn68m1_01_25[PointToPoint]"]
+    "NeighborState": ["4.4.4.4 1 00:00:37 Full/DROther 7d13:53:33 cvn68m2_01_26[PointToPoint]", "4.4.4.4 1 00:00:37 Full/DROther 7d13:53:33 cvn68m1_01_25[PointToPoint]"]
     }
     
 
