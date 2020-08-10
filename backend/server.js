@@ -19,7 +19,30 @@ const statusDict = {
     "MDRLevel": ["area 0.0.0.0 interface cvn68m2_01_26 MDR", "area 0.0.0.0 interface cvn68m2_01_27 MDR", "area 0.0.0.0 interface cvn68m2_01_26 MDR"],
     "NeighborState": ["4.4.4.4 1 00:00:37 Full/DROther 7d13:53:33 cvn68m2_01_26[PointToPoint]", "4.4.4.4 1 00:00:37 Full/DROther 7d13:53:33 cvn68m1_01_25[PointToPoint]"]
     }
-    
+const dictList = {
+    data: [
+        {
+            "hostname": "mycomputer1",
+            "running": "true",
+            "Cksum": 0x5678910,
+            "pid": 13,
+            "pDRCALeader": "true",
+            "pDRCAIteration": 300,
+            "MDRLevel": ["area 0.0.0.0 interface cvn68m2_01_26 MDR", "area 0.0.0.0 interface cvn68m2_01_27 MDR", "area 0.0.0.0 interface cvn68m2_01_26 MDR"],
+            "NeighborState": ["4.4.4.4 1 00:00:37 Full/DROther 7d13:53:33 cvn68m2_01_26[PointToPoint]", "4.4.4.4 1 00:00:37 Full/DROther 7d13:53:33 cvn68m1_01_25[PointToPoint]"]
+        },
+        {
+            "hostname": "mycomputer2",
+            "running": "false",
+            "Cksum": 0x56735610,
+            "pid": 13,
+            "pDRCALeader": "false",
+            "pDRCAIteration": 212,
+            "MDRLevel": ["area 0.0.0.0 interface cvn68m2_01_26 MDR", "area 0.0.0.0 interface cvn68m2_01_27 MDR", "area 0.0.0.0 interface cvn68m2_01_26 MDR"],
+            "NeighborState": ["4.4.4.4 1 00:00:37 Full/DROther 7d13:53:33 cvn68m2_01_26[PointToPoint]", "4.4.4.4 1 00:00:37 Full/DROther 7d13:53:33 cvn68m1_01_25[PointToPoint]"]
+        }
+    ]
+}
 
 app.use(cors()); // Enable All CORS Requests
 
@@ -29,7 +52,7 @@ var foo = () => {
 
 app.get('/api/test', (req, res) => {
     console.log('Connecting to api')
-    res.json(statusDict)
+    res.json(dictList)
 })
 
 app.listen(port, () => console.log(`listening on port ${port}`))

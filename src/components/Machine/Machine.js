@@ -7,6 +7,12 @@ class Machine extends React.Component {
         super(props)
         this.state = {
             show: false,
+            hostname: "",
+            running: true,
+            pDRCALeader: true,
+            pDRCAIteration: 0,
+            MDRLevel: "",
+            NeighborState: ""
         }
     }
 
@@ -35,43 +41,44 @@ class Machine extends React.Component {
     }
 
     should_show() {
-        if (this.state.show) {
+        /*if (this.state.show) {*/
             return (
                 <div>
-                    <h3>Machine: {this.state.name}</h3>
+                    <h3>Machine: {this.props.name}</h3>
                     <ul>
                         <li>
-                            Running: {this.state.running}
+                            Running: {this.props.running}
                         </li>
                         <li>
-                            pDRCALeader: {this.state.pDRCALeader}
+                            pDRCALeader: {this.props.pDRCALeader}
                         </li>
                         <li>
-                            pDRCAIteration: {this.state.pDRCAIteration}
+                            pDRCAIteration: {this.props.pDRCAIteration}
                         </li>
                         <li>
-                            MDRLevel: {this.state.MDRLevel}
+                            MDRLevel: {this.props.MDRLevel}
                         </li>
                         <li>
-                            NeighborState: {this.state.NeighborState}
+                            NeighborState: {this.props.NeighborState}
                         </li>
                     </ul>
                 </div>
             )
-        } else {
+        /*} else {
             return (<div></div>)
-        }
+        }*/
     }
 
     render() {
         return (
             <div>
-                <DropdownButton id="dropdown-basic-button" title={this.state.name}>
+                <DropdownButton id="dropdown-basic-button" title={this.props.name}>
                     <Dropdown.Item onClick={() => {
                         this.setState({show: !this.state.show})
                     }}>Show</Dropdown.Item>
                 </DropdownButton>
                 {this.should_show()}
+                <br></br>
             </div>
         )
     }
