@@ -1,0 +1,11 @@
+.DropdownMenu {
+    background-color: blue;
+}
+
+.show {
+    background-color: blue;
+}
+
+.dropdown-toggle::after {
+    display: none;
+}
