@@ -9,6 +9,7 @@
     "child_process": "^1.0.2",
     "cors": "^2.8.5",
     "html-react-parser": "^0.13.0",
+    "nodemon": "^2.0.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1"
