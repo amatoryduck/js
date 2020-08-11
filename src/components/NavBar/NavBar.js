@@ -11,7 +11,7 @@ class NavBar extends React.Component {
 
     render() {
         return (
-            <div>
+            <div id="entireBar">
                 <ul id="NavBar_ul">
                     <li id="NavBar_li"><a href="default.asp">OSPF</a></li>
                     <li id="NavBar_li"><a href="news.asp">PDRCA</a></li>

@@ -55,7 +55,7 @@
 
 #computerData {
   position: absolute;
-  right: 100vh;
+  left: 20vw;
 }
 
 @media screen and (max-height: 450px) {

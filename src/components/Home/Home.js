@@ -1,7 +1,7 @@
 import React from 'react'
 import NavBar from '../NavBar/NavBar'
-import MachineList from '../MachineList/MachineList'
 import './Home.css'
+import Machine from '../Machine/Machine'
 
 class Home extends React.Component {
     constructor(props) {
@@ -72,14 +72,13 @@ class Home extends React.Component {
                 <div class="bar">
                     {this.state.sidebar_names}
                 </div>
-                <br></br><br></br>
+                <br></br><br></br><br></br>
                 <div id="computerData">
                     {
                         this.state.jsx_machines.map(item => {
                             return (
-                                <div>
-                                    <h1>{item.hostname}</h1>
-                                    <h3>{item.running}</h3>
+                                <div id="machine">
+                                    <Machine hostname={item.hostname} running={item.running} pDRCALeader={item.pDRCALeader} MDRLevel={item.MDRLevel} pDRCAIteration={item.pDRCAIteration} NeighborState={item.NeighborState}/>
                                 </div>
                             )
                         })
