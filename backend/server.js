@@ -8,6 +8,7 @@ const awk = "awk -v OFS=, '{print $1,$2,$3,$4,$5,$6,$7,$8,$9}'"
 const ssh = "ssh"
 const path = "ls -l /mnt/c/Users/Alex/Desktop"
 const location = "localhost"
+const machineList = ["mycomputer1", "mycomputer2"]
 var router = express.Router()
 const statusDict = {
     "hostname": "mycomputer",
@@ -49,6 +50,10 @@ app.use(cors()); // Enable All CORS Requests
 var foo = () => {
     return execSync(`${ssh} ${location} ${path} | ${awk}`, { encoding: 'utf-8' });
 }
+
+app.get('/api/test/all_names', (req, res) => {
+    res.json(machineList)
+})
 
 app.get('/api/test', (req, res) => {
     console.log('Connecting to api')

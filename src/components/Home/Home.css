@@ -1,0 +1,61 @@
+
+.bar {
+    height: 100%;
+    width: 220px;
+    position: fixed;
+    z-index: 1;
+    top: 5%;
+    left: 0;
+    background-color: #333;
+    overflow-x: hidden;
+    padding-top: 20px;
+    border-right: 1px solid grey;
+}
+
+.line {
+  height: 1px;
+  background-color: white;
+  margin-top: 15px;
+}
+
+.info {
+  font-size: 14px;
+}
+
+.companyName {
+  font-size: 25px;
+}
+
+.bar a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    color: #B0C1D0;
+    display: block;
+}
+  
+.bar a:hover {
+  color: white;
+  font-weight: 550;
+}
+
+.main {
+  margin-left: 160px; /* Same as the width of the sidenav */
+  font-size: 28px; /* Increased text to enable scrolling */
+  padding: 30px 10px;
+  margin-top: 100px;
+  display: flex;
+  height: 500px;
+  justify-content: space-around;
+}
+
+.sizechart{
+  width: 40%;
+  border:1px solid black;
+}
+
+
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
