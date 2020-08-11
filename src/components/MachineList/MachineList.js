@@ -1,42 +1,39 @@
 import React from 'react'
-import Machine from '../Machine/Machine'
+import './MachineList.css'
 
 class MachineList extends React.Component {
     constructor(props) {
-        var new_machines_state = []
         super(props)
+        this.machine_jsx = []
         this.state = {
             machines: []
         }
-        
     }
 
     componentDidMount() {
-        this.new_machines_state = []
-        fetch("http://localhost:8000/api/test", {
-            method: "GET"
-        })
-        .then(response => response.json())
-        .then(data => {
-            for (var i = 0; i < data["data"].length; i++) {
-                var m = new Machine({show: false, name: data["data"][i].hostname, running: data["data"][i].running, pDRCALeader: data["data"][i].pDRCALeader, pDRCAIteration: data["data"][i].pDRCAIteration, MDRLevel: data["data"][i].MDRLevel, NeighborState: data["data"][i].NeighborState})
-                this.new_machines_state.push(m)
-            }
+        console.log(`Machines: ${this.props.temp_machines.length}`)
+        this.setState({machines: this.props.temp_machines})
+    }
 
-            this.setState({machines: this.new_machines_state})
-        })
-
-        this.setState({machines: this.new_machines_state})
+    componentDidUpdate() {
+        this.machine_jsx = []
+        for (var i = 0; i < this.state.machines.length; i++) {
+            fetch(`http://localhost:8000/api/test/${this.state.machines[i]}`)
+            .then(response => response.json())
+            .then(result => {
+                this.machine_jsx.push(result["hostname"])
+            })
+        }
     }
 
     render() {
         return (
         <div id="machineList">
-        {
-            this.state.machines.map(machine => {
-                return (machine.render())
-            })
-        }
+            {this.machine_jsx.map(item => {
+                return (
+                        <h1>{item}</h1>
+                )
+            })}
         </div>
         )
     }

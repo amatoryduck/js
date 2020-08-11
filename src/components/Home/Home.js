@@ -7,8 +7,23 @@ class Home extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            sidebar_names: []
+            sidebar_names: [],
+            machines: [],
+            selected_names: []
         }
+    }
+
+    sidebar_click = (name) => {
+        var tmp_names = this.state.selected_names
+
+        if (this.state.selected_names.indexOf(name) < 0) {
+            tmp_names.push(name)
+        } else {
+            var index = tmp_names.indexOf(name)
+            tmp_names.splice(index, 1)
+        }
+
+        this.setState({selected_names: tmp_names})
     }
 
     componentWillMount() {
@@ -18,7 +33,7 @@ class Home extends React.Component {
         .then(response => response.json())
         .then(result => {
             let divs = result.map((name, i) => {
-                return (<a href="#" key = {i}>
+                return (<a href="#" key = {i} onClick={() => {this.sidebar_click(`${name}`)}}>
                     <div className="companyName">{name}</div>
                     <div className = "line"></div>
                 </a>)
@@ -35,7 +50,7 @@ class Home extends React.Component {
                     {this.state.sidebar_names}
                 </div>
                 <br></br><br></br>
-                <MachineList/>
+                <MachineList temp_machines={this.state.selected_names}/>
             </div>
         )
     }

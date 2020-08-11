@@ -1,9 +1,6 @@
 import React from 'react';
 import './App.css';
-import NavBar from './components/NavBar/NavBar'
-import Machine from './components/Machine/Machine'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import MachineList from './components/MachineList/MachineList'
 import Home from './components/Home/Home'
 
 function App() {

@@ -55,6 +55,15 @@ app.get('/api/test/all_names', (req, res) => {
     res.json(machineList)
 })
 
+app.get('/api/test/:name', (req, res) => {
+    console.log(req.params.name)
+    for (var i = 0; i < dictList["data"].length; i++) {
+        if (dictList["data"][i].hostname == req.params.name) {
+            res.json(dictList["data"][i])
+        }
+    }
+})
+
 app.get('/api/test', (req, res) => {
     console.log('Connecting to api')
     res.json(dictList)
