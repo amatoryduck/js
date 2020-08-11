@@ -16,7 +16,7 @@ class MachineList extends React.Component {
         console.log("THIS MACHINES: " + this.state.machines.length)
     }
 
-    componentWillUpdate() {
+    componentDidUpdate() {
         console.log("MACHINES: " + this.state.machines)
         let str = ""
         for (var i = 0; i < this.state.machines.length; i++) {
@@ -44,14 +44,9 @@ class MachineList extends React.Component {
         }
     }
 
-    componentDidUpdate() {
-        
-    }
-
     render() {
         return (
         <div id="machineList">
-            {this.divs.length}
             {this.divs.map(item => {
                 return (
                     <div>

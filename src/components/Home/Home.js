@@ -9,7 +9,8 @@ class Home extends React.Component {
         this.state = {
             sidebar_names: [],
             machines: [],
-            selected_names: []
+            selected_names: [],
+            jsx_machines: []
         }
     }
 
@@ -23,7 +24,29 @@ class Home extends React.Component {
             tmp_names.splice(index, 1)
         }
 
-        this.setState({selected_names: tmp_names})
+        fetch(`http://localhost:8000/api/test/multiple/${name}`, {
+            method: "GET"
+        })
+        .then(response => response.json())
+        .then(result => {
+            let divs = this.state.jsx_machines
+            var tmp = []
+            var found = false
+
+            for (var i = 0; i < divs.length; i++) {
+                if (divs[i].hostname != result[0].hostname) {
+                    tmp.push(divs[i])
+                } else {
+                    found = true
+                }
+            }
+
+            if (!found) {
+                tmp.push(result[0])
+            }
+
+            this.setState({jsx_machines: tmp})
+        })
     }
 
     componentWillMount() {
@@ -50,7 +73,18 @@ class Home extends React.Component {
                     {this.state.sidebar_names}
                 </div>
                 <br></br><br></br>
-                <MachineList temp_machines={this.state.selected_names}/>
+                <div id="computerData">
+                    {
+                        this.state.jsx_machines.map(item => {
+                            return (
+                                <div>
+                                    <h1>{item.hostname}</h1>
+                                    <h3>{item.running}</h3>
+                                </div>
+                            )
+                        })
+                    }
+                </div>
             </div>
         )
     }
