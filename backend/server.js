@@ -64,6 +64,18 @@ app.get('/api/test/:name', (req, res) => {
     }
 })
 
+app.get('/api/test/multiple/:names', (req, res) => {
+    let names = req.params.names.split("-")
+    let data = []
+    console.log(req.params.names)
+    for (var i = 0; i < dictList["data"].length; i++) {
+        if (names.includes(dictList["data"][i].hostname)) {
+            data.push(dictList["data"][i])
+        }
+    }
+    res.json(data)
+})
+
 app.get('/api/test', (req, res) => {
     console.log('Connecting to api')
     res.json(dictList)
